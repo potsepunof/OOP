@@ -1,0 +1,82 @@
+// Решение с использованием статического метода
+//STARTER
+public class Starter {
+
+	public static void main(String[] args) {
+       MyTask.DoTask();		
+	}
+}
+//Класс
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class MyTask {
+public static void DoTask() {
+	Scanner sc = new Scanner(System.in);
+	System.out.print("Enter amount of numbers > ");
+	int N = sc.nextInt();
+	
+	double a;
+	ArrayList<Double> aa = new ArrayList();
+	
+	for(int i=0;i<N;i++) {
+		System.out.print("Enter the number " + String.valueOf(i+1) +" > ");
+		a = sc.nextDouble();
+		aa.add(a);
+	}
+	 
+	double sum = 0;
+	for(int i=0;i<N;i++) {
+	sum += aa.get(i);
+	}
+	
+	System.out.println("The average value > " + (sum/N));
+	
+	sc.close();
+}
+}
+
+//Решение без использование статического метода
+//STARTER
+public class Starter {
+
+	public static void main(String[] args) {
+       MyTask2Edit ob = new MyTask2Edit();
+       ob.InputArray();
+       ob.PrintResult();
+	}
+}
+//Класс
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class MyTask2Edit {
+private ArrayList<Double> aa = new ArrayList<Double>();
+private int N;
+
+public void InputArray()
+{
+	aa.clear();
+	Scanner sc = new Scanner(System.in);
+	System.out.print("Enter amount of the numbers > ");
+	N = sc.nextInt();
+	
+	double a;
+	for(int i=0;i<N;i++) {
+		System.out.print("Enter the number " + String.valueOf(i+1) +" > ");
+		a = sc.nextDouble();
+		aa.add(a);
+	}
+	sc.close();
+}
+
+public void PrintResult() {
+
+	double sum = 0;
+	for(int i=0;i<N;i++) {
+	sum += aa.get(i);
+	}
+
+	System.out.println("The average value > " + (sum/N));
+}
+}
